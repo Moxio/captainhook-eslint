@@ -1,0 +1,23 @@
+{
+	"name": "moxio/captainhook-eslint",
+	"type": "library",
+	"description": "Captain Hook Plugin to validate files using ESLint",
+	"license": "MIT",
+	"keywords" : [ "captainhook", "eslint", "git", "pre-commit" ],
+	"authors": [
+		{
+			"name": "Moxio",
+			"homepage": "https://www.moxio.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Moxio\\CaptainHook\\ESLint\\": "src/"
+		}
+	},
+	"require": {
+		"captainhook/captainhook": "^4.5",
+		"sebastianfeldmann/cli": "^3.2",
+		"sebastianfeldmann/git": "^2.4"
+	}
+}

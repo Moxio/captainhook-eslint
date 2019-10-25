@@ -17,8 +17,8 @@
 	},
 	"require": {
 		"php": "^7.2",
-		"captainhook/captainhook": "^4.5",
-		"sebastianfeldmann/cli": "^3.2",
-		"sebastianfeldmann/git": "^2.4"
+		"captainhook/captainhook": "^4.4",
+		"sebastianfeldmann/cli": "^3.0",
+		"sebastianfeldmann/git": "^2.2"
 	}
 }

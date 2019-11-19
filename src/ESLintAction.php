@@ -16,6 +16,10 @@ class ESLintAction implements Action {
             $index_operator->getStagedFilesOfType("mjs")
         );
 
+        if (count($changed_js_files) === 0) {
+            return;
+        }
+
         $eslint_args = [
             "--quiet",      // ignores warnings, reports only errors
         ];

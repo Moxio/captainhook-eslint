@@ -10,11 +10,14 @@ use SebastianFeldmann\Git\Repository;
 
 class ESLintAction implements Action {
     public function execute(Config $config, IO $io, Repository $repository, Config\Action $action): void {
+        $options = $action->getOptions();
+        $extensions = $options->get("extensions", ["js", "mjs"]);
+
         $index_operator = $repository->getIndexOperator();
-        $changed_js_files = array_merge(
-            $index_operator->getStagedFilesOfType("js"),
-            $index_operator->getStagedFilesOfType("mjs")
-        );
+        $changed_js_files = [];
+        foreach ($extensions as $extension) {
+            $changed_js_files = array_merge($changed_js_files, $index_operator->getStagedFilesOfType($extension));
+        }
 
         if (count($changed_js_files) === 0) {
             return;

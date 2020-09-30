@@ -70,9 +70,9 @@ with extensions of files to lint:
         "actions": [
             {
                 "action": "\\Moxio\\CaptainHook\\ESLint\\ESLintAction",
-				"options": {
-					"extensions": [ "js", "mjs", "ts", "tsx" ]
-				}
+                "options": {
+                    "extensions": [ "js", "mjs", "ts", "tsx" ]
+                }
             }
         ]
     }

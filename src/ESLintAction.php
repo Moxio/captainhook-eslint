@@ -5,10 +5,18 @@ use CaptainHook\App\Config;
 use CaptainHook\App\Console\IO;
 use CaptainHook\App\Exception\ActionFailed;
 use CaptainHook\App\Hook\Action;
+use SebastianFeldmann\Cli\Processor;
 use SebastianFeldmann\Cli\Processor\ProcOpen;
 use SebastianFeldmann\Git\Repository;
 
 class ESLintAction implements Action {
+    /** @var Processor */
+    private $processor;
+
+    public function __construct(Processor $processor = null) {
+        $this->processor = $processor ?? new ProcOpen();
+    }
+
     public function execute(Config $config, IO $io, Repository $repository, Config\Action $action): void {
         $options = $action->getOptions();
         $extensions = $options->get("extensions", ["js", "mjs"]);
@@ -29,9 +37,8 @@ class ESLintAction implements Action {
         foreach ($changed_js_files as $file) {
             $eslint_args[] = escapeshellarg($file);
         }
-        $eslint_process = new ProcOpen();
         $eslint_bin = str_replace("/", DIRECTORY_SEPARATOR, "./node_modules/.bin/eslint");
-        $eslint_result = $eslint_process->run($eslint_bin . " " . implode(" ", $eslint_args));
+        $eslint_result = $this->processor->run($eslint_bin . " " . implode(" ", $eslint_args));
 
         if ($eslint_result->isSuccessful() === false) {
             if ($eslint_result->getCode() === 1) {

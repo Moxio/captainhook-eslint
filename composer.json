@@ -21,7 +21,7 @@
 		}
 	},
 	"require": {
-		"php": "^7.2",
+		"php": "^7.2 || ^8.0",
 		"captainhook/captainhook": "^4.4 || ^5.0",
 		"sebastianfeldmann/cli": "^3.0",
 		"sebastianfeldmann/git": "^2.2 || ^3.0"

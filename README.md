@@ -1,3 +1,4 @@
+![CI](https://github.com/Moxio/captainhook-eslint/workflows/CI/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/moxio/captainhook-eslint/v/stable)](https://packagist.org/packages/moxio/captainhook-eslint)
 
 moxio/captainhook-eslint

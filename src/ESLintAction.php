@@ -13,7 +13,7 @@ class ESLintAction implements Action {
     /** @var Processor */
     private $processor;
 
-    public function __construct(Processor $processor = null) {
+    public function __construct(?Processor $processor = null) {
         $this->processor = $processor ?? new ProcOpen();
     }
 

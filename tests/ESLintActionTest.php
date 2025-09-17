@@ -63,7 +63,7 @@ class ESLintActionTest extends TestCase {
         $config_action = new Config\Action(ESLintAction::class);
 
         $ds = DIRECTORY_SEPARATOR;
-        $expected_cmd = ".${ds}node_modules${ds}.bin${ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("dir/bar.mjs");
+        $expected_cmd = ".{$ds}node_modules{$ds}.bin{$ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("dir/bar.mjs");
         $this->processor->expects($this->once())
             ->method("run")
             ->with($expected_cmd)
@@ -84,7 +84,7 @@ class ESLintActionTest extends TestCase {
         $config_action = new Config\Action(ESLintAction::class);
 
         $ds = DIRECTORY_SEPARATOR;
-        $expected_cmd = ".${ds}node_modules${ds}.bin${ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("dir/bar.mjs");
+        $expected_cmd = ".{$ds}node_modules{$ds}.bin{$ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("dir/bar.mjs");
         $this->processor->expects($this->once())
             ->method("run")
             ->with($expected_cmd)
@@ -106,7 +106,7 @@ class ESLintActionTest extends TestCase {
         $config_action = new Config\Action(ESLintAction::class);
 
         $ds = DIRECTORY_SEPARATOR;
-        $expected_cmd = ".${ds}node_modules${ds}.bin${ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("dir/bar.mjs");
+        $expected_cmd = ".{$ds}node_modules{$ds}.bin{$ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("dir/bar.mjs");
         $this->processor->expects($this->once())
             ->method("run")
             ->with($expected_cmd)
@@ -129,7 +129,7 @@ class ESLintActionTest extends TestCase {
         $config_action = new Config\Action(ESLintAction::class, [ "extensions" => [ "js", "ts" ] ]);
 
         $ds = DIRECTORY_SEPARATOR;
-        $expected_cmd = ".${ds}node_modules${ds}.bin${ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("qux.ts");
+        $expected_cmd = ".{$ds}node_modules{$ds}.bin{$ds}eslint --quiet " . escapeshellarg("foo.js") . " " . escapeshellarg("qux.ts");
         $this->processor->expects($this->once())
             ->method("run")
             ->with($expected_cmd)
